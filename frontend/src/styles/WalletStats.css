@@ -1,0 +1,182 @@
+.wallet-stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+  width: 100%;
+}
+
+.stat-card {
+  background-color: #1e1e1e;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease;
+  z-index: 1;
+  opacity: 0;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
+}
+
+.stat-card:hover::before {
+  left: 0;
+  opacity: 1;
+}
+
+/* Revenue card (purple) */
+.stat-card:nth-child(1)::before {
+  background: linear-gradient(90deg, rgba(75, 63, 232, 0.3) 0%, rgba(75, 63, 232, 0) 100%);
+}
+
+.stat-card:nth-child(1):hover {
+  border-color: #4B3FE8;
+  box-shadow: 0 5px 15px rgba(75, 63, 232, 0.3);
+}
+
+/* Wallets card (green) */
+.stat-card:nth-child(2)::before {
+  background: linear-gradient(90deg, rgba(40, 199, 111, 0.3) 0%, rgba(40, 199, 111, 0) 100%);
+}
+
+.stat-card:nth-child(2):hover {
+  border-color: #28C76F;
+  box-shadow: 0 5px 15px rgba(40, 199, 111, 0.3);
+}
+
+/* Balance card (orange) */
+.stat-card:nth-child(3)::before {
+  background: linear-gradient(90deg, rgba(255, 159, 67, 0.3) 0%, rgba(255, 159, 67, 0) 100%);
+}
+
+.stat-card:nth-child(3):hover {
+  border-color: #FF9F43;
+  box-shadow: 0 5px 15px rgba(255, 159, 67, 0.3);
+}
+
+/* Tokens card (red) */
+.stat-card:nth-child(4)::before {
+  background: linear-gradient(90deg, rgba(234, 84, 85, 0.3) 0%, rgba(234, 84, 85, 0) 100%);
+}
+
+.stat-card:nth-child(4):hover {
+  border-color: #EA5455;
+  box-shadow: 0 5px 15px rgba(234, 84, 85, 0.3);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  font-size: 22px;
+  color: white;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-icon.revenue {
+  background-color: #4B3FE8;
+}
+
+.stat-icon.wallets {
+  background-color: #28C76F;
+}
+
+.stat-icon.balance {
+  background-color: #FF9F43;
+}
+
+.stat-icon.tokens {
+  background-color: #EA5455;
+}
+
+.stat-card:hover .stat-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.stat-content {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-content h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #cccccc;
+  margin: 0 0 8px 0;
+}
+
+.stat-content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.stat-change {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Default positive/negative colors - will be overridden by card-specific colors */
+.stat-change.positive {
+  color: #28C76F;
+}
+
+.stat-change.negative {
+  color: #EA5455;
+}
+
+/* Revenue card (purple) text color */
+.stat-card:nth-child(1) .stat-change {
+  color: #4B3FE8;
+}
+
+/* Wallets card (green) text color */
+.stat-card:nth-child(2) .stat-change {
+  color: #28C76F;
+}
+
+/* Balance card (orange) text color */
+.stat-card:nth-child(3) .stat-change {
+  color: #FF9F43;
+}
+
+/* Tokens card (red) text color */
+.stat-card:nth-child(4) .stat-change {
+  color: #EA5455;
+}
+
+@media (max-width: 768px) {
+  .wallet-stats-container {
+    grid-template-columns: 1fr;
+  }
+} 

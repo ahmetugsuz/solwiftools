@@ -1,0 +1,168 @@
+.reviews-section {
+    padding: 100px 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+}
+
+.reviews-section h2 {
+    text-align: center;
+    color: white;
+    font-size: 64px;
+    margin-bottom: 80px;
+}
+
+.reviews-slider-container {
+    width: 100%;
+}
+
+.review-slide {
+    padding: 0 20px;
+    width: 450px !important;
+}
+
+.review-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 35px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.review-card h3 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.review-card p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: auto;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.stars {
+    display: flex;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.star {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 24px;
+}
+
+.star.filled {
+    color: #FFD700;
+}
+
+/* Slick slider overrides */
+.slick-slider {
+    position: relative;
+    width: 100vw;
+}
+
+.slick-track {
+    display: flex !important;
+}
+
+.slick-slide {
+    height: inherit !important;
+    opacity: 1 !important;
+}
+
+.slick-list {
+    overflow: visible !important;
+}
+
+/* Remove any container constraints */
+.reviews-section .slick-list,
+.reviews-section .slick-track {
+    width: 100vw !important;
+    max-width: none !important;
+}
+
+/* Override slick slider styles */
+.slick-track {
+    display: flex !important;
+    gap: 20px;
+}
+
+.slick-slide {
+    height: inherit !important;
+}
+
+.slick-slide > div {
+    height: 100%;
+}
+
+/* Remove default slick slider styles */
+.slick-list {
+    overflow: visible !important;
+    padding: 20px 0 !important;
+}
+
+/* Optional: Style the dots */
+.slick-dots {
+    bottom: -40px;
+}
+
+.slick-dots li button:before {
+    color: #fff;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #fff;
+}
+
+/* Ensure the container is visible */
+.slick-list {
+    overflow: hidden;
+}
+
+/* Remove the fade effects since they might interfere with the continuous scroll */
+.slider-container::before,
+.slider-container::after {
+    display: none;
+}
+
+/* Override default slick-slider styles */
+.slick-track {
+    display: flex !important;
+}
+
+.slick-slide {
+    height: inherit !important;
+    display: flex !important;
+}
+
+.slick-slide > div {
+    flex: 1;
+    display: flex;
+}
+
+/* Hide the default arrows if you don't want them */
+.slick-prev,
+.slick-next {
+    display: none !important;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+} 

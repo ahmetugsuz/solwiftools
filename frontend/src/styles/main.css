@@ -1,0 +1,190 @@
+/* Ensure main content is scrollable */
+body, .app-content {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: #f5f5f5; /* Light text color */
+}
+
+/* Global styles */
+html, body, #root {
+    height: 100%;
+    color: #f5f5f5; /* Light text color */
+}
+
+a {
+    color: #9b4dca; /* Purple accent color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff4b4b; /* Red accent color on hover */
+}
+
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker background with slight transparency */
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+header nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ff4b4b; /* Red accent color for hover */
+}
+
+/* Section */
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+}
+
+/* Section Titles */
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+/* Paragraph Text */
+p {
+    font-size: 1.25rem;
+    margin: 1rem 0;
+    line-height: 1.5;
+}
+
+/* Buttons */
+button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+    border-radius: 50px;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Footer */
+
+
+
+/* Dark Background for Specific Elements */
+.bg-dark {
+    background-color: #000000; /* Black background */
+}
+
+.text-light {
+    color: #f5f5f5; /* Light text color */
+}
+
+/* Additional classes for a consistent dark theme */
+.dark-header {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for header */
+}
+
+.dark-card {
+    background-color: #222222; /* Dark card background */
+    color: #f5f5f5;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Ensure links and buttons are consistent with dark theme */
+button, a {
+    color: white;
+}
+
+button:hover, a:hover {
+    color: #ff4b4b; /* Vibrant accent on hover */
+}
+
+.card {
+    background-color: rgba(10, 10, 10, 255);
+    border: 1px solid rgba(47, 47, 47, 255);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Hide the header on the dashboard page */
+/* Hide the header on the dashboard page */
+
+/* Fix for react-toastify container */
+.Toastify {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.Toastify__toast-container {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+/* Ensure the toast doesn't affect page layout */
+body > .Toastify {
+  height: 0;
+  overflow: visible;
+}
+
+/* Fix for react-hot-toast container */
+#_rht_toaster {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none !important;
+}
+
+#_rht_toaster > div {
+  pointer-events: auto !important;
+}
+
+/* Ensure both toast libraries can coexist */
+:root {
+  --toastify-z-index: 9999;
+  --hot-toast-z-index: 9999;
+}
+
+/* Ensure no conflicts between toast libraries */
+.Toastify {
+  top: 1rem;
+  right: 1rem;
+}
+
+#_rht_toaster div[class*="slice-"] {
+  top: auto !important;
+  bottom: 1rem !important;
+  right: 1rem !important;
+  left: auto !important;
+}
+
+/* Style react-hot-toast specifically for liquidity page */
+body.liquidity-page #_rht_toaster {
+  bottom: auto !important;
+  top: 1rem !important;
+}
+

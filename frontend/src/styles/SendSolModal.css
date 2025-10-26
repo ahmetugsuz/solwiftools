@@ -1,0 +1,98 @@
+.send-sol-modal {
+  background-color: #121212;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 500px;
+  color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.send-sol-modal h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.sol-amount-input {
+  margin-bottom: 24px;
+}
+
+.sol-amount-input label {
+  display: block;
+  margin-bottom: 8px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.sol-amount-input input {
+  width: 100%;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+}
+
+.sol-amount-input input.invalid-input {
+  border-color: #ff5252;
+}
+
+.sol-note {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-button {
+  background-color: transparent;
+  border: 1px solid #333;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.send-button {
+  background-color: #4ade80;
+  color: #111;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.send-button:disabled {
+  background-color: #333;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.distribution-info {
+  background-color: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.distribution-info p {
+  color: #4ade80;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+
+.distribution-note {
+  margin-top: 8px !important;
+  font-style: italic;
+  opacity: 0.8;
+} 

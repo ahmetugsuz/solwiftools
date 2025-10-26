@@ -1,0 +1,9 @@
+node_modules/
+solana-program/
+public/
+package-lock.json
+yarn.lock
+.DS_Store
+dist/
+*.log
+

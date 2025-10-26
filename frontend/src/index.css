@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Custom styles can go here */
+}
+
+/* Main Background */
+body {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Add this at the top of your index.css */
+@font-face {
+    font-family: 'Avenir Light';
+    src: url('./assets/fonts/AvenirLight.woff2') format('woff2'),
+         url('./assets/fonts/AvenirLight.woff') format('woff'),
+         url('./assets/fonts/AvenirLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Apply globally to all elements */
+* {
+    font-family: 'Avenir Light', sans-serif;
+}
+
+body {
+    font-family: 'Avenir Light', sans-serif;
+}
+
+/* Header */
+header {
+  position: fixed;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+header nav a {
+  margin: 0 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #ff4b4b;
+}
+
+/* Section */
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 2rem;
+}
+
+/* Section Titles */
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+p {
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+/* Buttons */
+button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  border-radius: 50px;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Global body styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white; /* Default background color for the whole site */
+}
+
+/* Dashboard page-specific styles */
+body.dashboard-page {
+  background-color: white; /* Or whatever background color you want */
+}
+
+/* Hide the header when on the dashboard page */
+body.dashboard-page header {
+  display: none;
+}
+
+/* Fix for ToastContainer */
+:root {
+  --toastify-z-index: 9999;
+  --hot-toast-z-index: 9999;
+}
+
+.Toastify,
+.Toastify__toast-container {
+  position: fixed !important;
+  z-index: var(--toastify-z-index) !important;
+}
+
+.Toastify__toast-container {
+  width: auto;
+  max-width: 420px;
+  box-sizing: border-box;
+}
+
+/* Ensure the toast container doesn't affect page layout */
+body .Toastify {
+  position: fixed;
+  pointer-events: none;
+}
+
+body .Toastify__toast-container {
+  pointer-events: auto;
+}
+
+/* react-hot-toast styles */
+/* This is for the react-hot-toast library used in the liquidity page */
+#_rht_toaster {
+  position: fixed !important;
+  z-index: var(--hot-toast-z-index) !important;
+  pointer-events: none !important;
+}
+
+#_rht_toaster > div {
+  pointer-events: auto !important;
+}
+
+/* Position hot-toast at the bottom to avoid conflicts with react-toastify */
+body.liquidity-page #_rht_toaster div[class*="slice-"] {
+  top: auto !important;
+  bottom: 1rem !important;
+  right: 1rem !important;
+  left: auto !important;
+}
+
+/* Apply a specific class to the liquidity page */
+body.liquidity-page {
+  /* Any liquidity page specific styling can go here */
+}

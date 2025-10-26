@@ -1,0 +1,1286 @@
+/* Modal backdrop for blurry background effect */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+}
+
+.section-content {
+  padding: 20px;
+  color: #fff;
+}
+
+.create-task-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  border-radius: 12px;
+  width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
+  color: #fff;
+  border: 1px solid #222;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  padding: 18px 28px;
+  background-color: #131313 !important;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 1px solid #222 !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  left: 18px;
+}
+
+/* Make sure header returns to default style when back on task selection */
+.create-task-modal:not(.task-type-buy):not(.task-type-sell):not(.task-type-comment):not(.task-type-bumpIt) .modal-header {
+  background: #131313;
+  border-bottom: 1px solid #222;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+
+}
+
+.modal-content {
+  padding: 28px 28px;
+  background-color: #121212;
+  flex: 1;
+  max-height: 65vh;
+  overflow-y: auto;
+}
+
+.create-task-modal .modal-content {
+  display: block;
+}
+
+.task-type-selection {
+  padding: 10px 0 20px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  position: absolute;
+  left: 12px;
+  top: 6px;
+  font-size: 10px;
+  color: #888;
+  pointer-events: none;
+  transition: color 0.3s ease-in-out;
+  z-index: 2;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.create-task-modal .form-group input,
+.create-task-modal .form-group select,
+.create-task-modal .form-group textarea {
+  width: 100%;
+  height: 56px;
+  padding: 24px 12px 8px;
+  background-color: #181818;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Task-specific input focus styles */
+.create-task-modal.task-type-buy .form-group input:focus,
+.create-task-modal.task-type-buy .form-group select:focus,
+.create-task-modal.task-type-buy .form-group textarea:focus {
+  border-color: #00C853 !important;
+  box-shadow: 0 0 0 1px rgba(0, 200, 83, 0.3);
+  outline: none;
+}
+
+.create-task-modal.task-type-buy .form-group input:focus ~ label,
+.create-task-modal.task-type-buy .form-group select:focus ~ label,
+.create-task-modal.task-type-buy .form-group textarea:focus ~ label {
+  color: #00C853;
+}
+
+.create-task-modal.task-type-sell .form-group input:focus,
+.create-task-modal.task-type-sell .form-group select:focus,
+.create-task-modal.task-type-sell .form-group textarea:focus {
+  border-color: #FF5252 !important;
+  box-shadow: 0 0 0 1px rgba(255, 82, 82, 0.3);
+  outline: none;
+}
+
+.create-task-modal.task-type-sell .form-group input:focus ~ label,
+.create-task-modal.task-type-sell .form-group select:focus ~ label,
+.create-task-modal.task-type-sell .form-group textarea:focus ~ label {
+  color: #FF5252;
+}
+
+.create-task-modal.task-type-comment .form-group input:focus,
+.create-task-modal.task-type-comment .form-group select:focus,
+.create-task-modal.task-type-comment .form-group textarea:focus {
+  border-color: #FF5722 !important;
+  box-shadow: 0 0 0 1px rgba(255, 87, 34, 0.3);
+  outline: none;
+}
+
+.create-task-modal.task-type-comment .form-group input:focus ~ label,
+.create-task-modal.task-type-comment .form-group select:focus ~ label,
+.create-task-modal.task-type-comment .form-group textarea:focus ~ label {
+  color: #FF5722;
+}
+
+.create-task-modal.task-type-bumpIt .form-group input:focus,
+.create-task-modal.task-type-bumpIt .form-group select:focus,
+.create-task-modal.task-type-bumpIt .form-group textarea:focus {
+  border-color: #03A9F4 !important;
+  box-shadow: 0 0 0 1px rgba(3, 169, 244, 0.3);
+  outline: none;
+}
+
+.create-task-modal.task-type-bumpIt .form-group input:focus ~ label,
+.create-task-modal.task-type-bumpIt .form-group select:focus ~ label,
+.create-task-modal.task-type-bumpIt .form-group textarea:focus ~ label {
+  color: #03A9F4;
+}
+
+.task-type-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.task-type-badge.large {
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.task-type-badge.large .task-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.change-type-button {
+  background-color: rgba(80, 70, 229, 0.1);
+  border: 1px solid rgba(80, 70, 229, 0.3);
+  border-radius: 4px;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.change-type-button:hover {
+  background-color: rgba(80, 70, 229, 0.2);
+}
+
+.modal-buttons {
+  padding: 16px 24px;
+  background-color: #131313;
+  border-top: 1px solid #222;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  position: sticky;
+  bottom: 0;
+  padding-right: 48px;
+}
+
+.create-button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #5046e5;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-button:hover {
+  background: transparent;
+  border-color: #6c63ff;
+  color: white;
+  box-shadow: 0 4px 12px rgba(80, 70, 229, 0.15);
+}
+
+.cancel-button {
+  background-color: transparent !important;
+  color: white !important;
+  border: 1px solid #252525 !important;
+  border-radius: 8px !important;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+  background: transparent !important;
+  border-color: #ff5252 !important;
+  color: white;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.15);
+}
+
+.close-button {
+  position: absolute;
+  right: 60px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  cursor: pointer;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.close-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: scale(1.1);
+}
+
+.task-type-selection h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #fff;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.task-templates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.task-template-card {
+  position: relative;
+  background-color: #181818;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #222;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.task-template-card .key-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.task-template-card:hover .key-indicator {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.task-template-card:nth-child(1):hover .key-indicator {
+  color: #00C853;
+  border-color: rgba(0, 200, 83, 0.5);
+  background-color: rgba(0, 200, 83, 0.1);
+}
+
+.task-template-card:nth-child(2):hover .key-indicator {
+  color: #FF5252;
+  border-color: rgba(255, 82, 82, 0.5);
+  background-color: rgba(255, 82, 82, 0.1);
+}
+
+.task-template-card:nth-child(3):hover .key-indicator {
+  color: #FF5722;
+  border-color: rgba(255, 87, 34, 0.5);
+  background-color: rgba(255, 87, 34, 0.1);
+}
+
+.task-template-card:nth-child(4):hover .key-indicator {
+  color: #03A9F4;
+  border-color: rgba(3, 169, 244, 0.5);
+  background-color: rgba(3, 169, 244, 0.1);
+}
+
+/* Icon colors for different task types */
+.task-templates .template-icon:nth-child(1) {
+  color: #00C853; /* Micro Buy - green */
+}
+
+.task-template-card:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 200, 83, 0.05) 0%, rgba(0, 200, 83, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.task-template-card:nth-child(1):hover {
+  border-color: rgba(0, 200, 83, 0.5);
+}
+
+.task-template-card:nth-child(1):hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(0, 200, 83, 0.1) 0%, rgba(0, 200, 83, 0) 70%);
+}
+
+.task-template-card:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 82, 82, 0.05) 0%, rgba(255, 82, 82, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.task-template-card:nth-child(2):hover {
+  border-color: rgba(255, 82, 82, 0.5);
+}
+
+.task-template-card:nth-child(2):hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(255, 82, 82, 0.1) 0%, rgba(255, 82, 82, 0) 70%);
+}
+
+.task-template-card:nth-child(3)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 87, 34, 0.05) 0%, rgba(255, 87, 34, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.task-template-card:nth-child(3):hover {
+  border-color: rgba(255, 87, 34, 0.5);
+}
+
+.task-template-card:nth-child(3):hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(255, 87, 34, 0.1) 0%, rgba(255, 87, 34, 0) 70%);
+}
+
+.task-template-card:nth-child(4)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(3, 169, 244, 0.05) 0%, rgba(3, 169, 244, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.task-template-card:nth-child(4):hover {
+  border-color: rgba(3, 169, 244, 0.5);
+}
+
+.task-template-card:nth-child(4):hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(3, 169, 244, 0.1) 0%, rgba(3, 169, 244, 0) 70%);
+}
+
+.template-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+/* Icon colors */
+.task-templates > div:nth-child(1) .template-icon {
+  color: #00C853; /* Micro Buy - green */
+}
+
+.task-templates > div:nth-child(2) .template-icon {
+  color: #FF5252; /* Sell - red */
+}
+
+.task-templates > div:nth-child(3) .template-icon {
+  color: #FF5722; /* Comment - orange */
+}
+
+.task-templates > div:nth-child(4) .template-icon {
+  color: #03A9F4; /* Bump It - blue */
+}
+
+.template-info {
+  flex: 1;
+}
+
+.template-info h4 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.template-info p {
+  font-size: 14px;
+  color: #aaa;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.task-template-note {
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.task-template-note kbd {
+  background-color: #181818;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: #ddd;
+  margin: 0 2px;
+  display: inline-block;
+  min-width: 20px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.task-template-note kbd:hover,
+.task-template-note kbd:focus {
+  background-color: #222;
+  border-color: #444;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Flash animation for keyboard shortcuts when keys are pressed */
+@keyframes kbd-flash {
+  0% { background-color: #181818; }
+  50% { background-color: #5046e5; border-color: #6c63ff; }
+  100% { background-color: #181818; }
+}
+
+.task-template-note kbd.key-1:hover {
+  background-color: rgba(0, 200, 83, 0.3);
+  border-color: #00C853;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.task-template-note kbd.key-2:hover {
+  background-color: rgba(3, 169, 244, 0.3);
+  border-color: #03A9F4;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.task-template-note kbd.key-3:hover {
+  background-color: rgba(255, 87, 34, 0.3);
+  border-color: #FF5722;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.task-configuration {
+  padding: 0;
+}
+
+.selected-task-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #222;
+}
+
+.task-type-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.task-type-badge.large {
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+
+}
+
+.task-type-badge.large .task-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.change-type-button {
+  background-color: rgba(80, 70, 229, 0.1);
+  border: 1px solid rgba(80, 70, 229, 0.3);
+  border-radius: 4px;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.change-type-button:hover {
+  background-color: rgba(80, 70, 229, 0.2);
+}
+
+/* Tasks Section Styles */
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-icon {
+  font-size: 24px;
+  color: #fff;
+}
+
+.section-title h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.tasks-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.start-button, 
+.create-task-button {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0 16px;
+}
+
+.start-button {
+  background-color: #00c853;
+  color: white;
+}
+
+.start-button:hover {
+  background-color: #00d85a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3);
+}
+
+.create-task-button {
+  background-color: #5046e5;
+  color: white;
+}
+
+.create-task-button:hover {
+  background-color: #5b51ef;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(80, 70, 229, 0.3);
+}
+
+.tasks-section {
+  display: flex;
+  height: calc(100vh - 80px);
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Left Sidebar */
+.tasks-sidebar {
+  width: 260px;
+  background-color: #181818;
+  border-right: 1px solid #222;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #222;
+}
+
+.sidebar-header h2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.add-task-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: #4B3FE8;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-task-btn:hover {
+  background-color: #5B51EF;
+  transform: translateY(-1px);
+}
+
+.task-groups-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.task-group-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+  border: 1px solid transparent;
+}
+
+.task-group-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.task-group-item.active {
+  background-color: rgba(75, 63, 232, 0.1);
+  border: 1px solid rgba(75, 63, 232, 0.3);
+}
+
+.pill-icon {
+  width: 32px;
+  height: 32px;
+  background-color: #222;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* Right Content Area */
+.tasks-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.content-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.start-btn {
+  background-color: #00C853;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.start-btn:hover {
+  background-color: #00E676;
+  transform: translateY(-1px);
+}
+
+.start-btn:disabled {
+  background-color: #1a472f;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.create-task-btn {
+  background-color: #4B3FE8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.create-task-btn:hover {
+  background-color: #5B51EF;
+  transform: translateY(-1px);
+}
+
+.create-task-btn:disabled {
+  background-color: #2a2456;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.task-info {
+  flex: 1;
+  background-color: #181818;
+  border-radius: 12px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-table th {
+  text-align: left;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #888;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  background-color: #181818;
+  z-index: 1;
+}
+
+.task-table td {
+  padding: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid #222;
+}
+
+.task-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #888;
+  text-align: center;
+  padding: 40px;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Action Buttons */
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 8px;
+  background-color: transparent;
+}
+
+.action-btn.start {
+  color: #00C853;
+  border: 1px solid rgba(0, 200, 83, 0.3);
+}
+
+.action-btn.start:hover {
+  background-color: rgba(0, 200, 83, 0.1);
+}
+
+.action-btn.delete {
+  color: #FF5252;
+  border: 1px solid rgba(255, 82, 82, 0.3);
+}
+
+.action-btn.delete:hover {
+  background-color: rgba(255, 82, 82, 0.1);
+}
+
+/* Modal color variations for task types */
+.create-task-modal.task-type-buy .modal-header {
+  background: linear-gradient(to right, rgba(0, 200, 83, 0.1), rgba(0, 200, 83, 0.2));
+  border-bottom: 2px solid #00C853;
+}
+
+.create-task-modal.task-type-volume .modal-header {
+  background: linear-gradient(to right, rgba(3, 169, 244, 0.1), rgba(3, 169, 244, 0.2));
+  border-bottom: 2px solid #03A9F4;
+}
+
+.create-task-modal.task-type-bump .modal-header {
+  background: linear-gradient(to right, rgba(255, 87, 34, 0.1), rgba(255, 87, 34, 0.2));
+  border-bottom: 2px solid #FF5722;
+}
+
+/* Task-specific button styling */
+.task-type-buy .change-type-button {
+  background-color: rgba(0, 200, 83, 0.1);
+  border: 1px solid rgba(0, 200, 83, 0.3);
+  color: #00C853;
+}
+
+.task-type-buy .change-type-button:hover {
+  background-color: rgba(0, 200, 83, 0.2);
+}
+
+.task-type-sell .change-type-button {
+  background-color: rgba(255, 82, 82, 0.1);
+  border: 1px solid rgba(255, 82, 82, 0.3);
+  color: #FF5252;
+}
+
+.task-type-sell .change-type-button:hover {
+  background-color: rgba(255, 82, 82, 0.2);
+}
+
+.task-type-comment .change-type-button {
+  background-color: rgba(255, 87, 34, 0.1);
+  border: 1px solid rgba(255, 87, 34, 0.3);
+  color: #FF5722;
+}
+
+.task-type-comment .change-type-button:hover {
+  background-color: rgba(255, 87, 34, 0.2);
+}
+
+.task-type-bumpIt .change-type-button {
+  background-color: rgba(3, 169, 244, 0.1);
+  border: 1px solid rgba(3, 169, 244, 0.3);
+  color: #03A9F4;
+}
+
+.task-type-bumpIt .change-type-button:hover {
+  background-color: rgba(3, 169, 244, 0.2);
+}
+
+/* Task-specific save template button styling */
+.task-type-buy .create-button {
+  border-color: rgba(0, 200, 83, 0.3);
+  color: #00C853;
+}
+
+.task-type-buy .create-button:hover {
+  background: rgba(0, 200, 83, 0.1);
+  border-color: #00C853;
+  box-shadow: 0 4px 12px rgba(0, 200, 83, 0.15);
+}
+
+.task-type-sell .create-button {
+  border-color: rgba(255, 82, 82, 0.3);
+  color: #FF5252;
+}
+
+.task-type-sell .create-button:hover {
+  background: rgba(255, 82, 82, 0.1);
+  border-color: #FF5252;
+  box-shadow: 0 4px 12px rgba(255, 82, 82, 0.15);
+}
+
+.task-type-comment .create-button {
+  border-color: rgba(255, 87, 34, 0.3);
+  color: #FF5722;
+}
+
+.task-type-comment .create-button:hover {
+  background: rgba(255, 87, 34, 0.1);
+  border-color: #FF5722;
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.15);
+}
+
+.task-type-bumpIt .create-button {
+  border-color: rgba(3, 169, 244, 0.3);
+  color: #03A9F4;
+}
+
+.task-type-bumpIt .create-button:hover {
+  background: rgba(3, 169, 244, 0.1);
+  border-color: #03A9F4;
+  box-shadow: 0 4px 12px rgba(3, 169, 244, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .tasks-section {
+    flex-direction: column;
+  }
+
+  .tasks-sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #222;
+  }
+
+  .task-groups-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .task-group-item {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .header-actions {
+    flex-direction: column;
+  }
+
+  .task-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .create-task-modal {
+    width: 90%;
+    margin: 20px;
+  }
+
+  .task-templates {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card gradients and outlines */
+.task-template-card:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 200, 83, 0.05) 0%, rgba(0, 200, 83, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.task-template-card:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 82, 82, 0.05) 0%, rgba(255, 82, 82, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.task-template-card:nth-child(3)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 87, 34, 0.05) 0%, rgba(255, 87, 34, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.task-template-card:nth-child(4)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(3, 169, 244, 0.05) 0%, rgba(3, 169, 244, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+/* Card hover effects */
+.task-template-card:nth-child(1):hover {
+  border-color: rgba(0, 200, 83, 0.5);
+}
+
+.task-template-card:nth-child(1):hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(0, 200, 83, 0.1) 0%, rgba(0, 200, 83, 0) 70%);
+}
+
+.task-template-card:nth-child(2):hover {
+  border-color: rgba(255, 82, 82, 0.5);
+}
+
+.task-template-card:nth-child(2):hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(255, 82, 82, 0.1) 0%, rgba(255, 82, 82, 0) 70%);
+}
+
+.task-template-card:nth-child(3):hover {
+  border-color: rgba(255, 87, 34, 0.5);
+}
+
+.task-template-card:nth-child(3):hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(255, 87, 34, 0.1) 0%, rgba(255, 87, 34, 0) 70%);
+}
+
+.task-template-card:nth-child(4):hover {
+  border-color: rgba(3, 169, 244, 0.5);
+}
+
+.task-template-card:nth-child(4):hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(3, 169, 244, 0.1) 0%, rgba(3, 169, 244, 0) 70%);
+}
+
+/* Mode cards for Buy task */
+.mode-selection .task-template-card[data-mode="micro"]::before,
+.mode-selection .task-template-card[data-mode="volume"]::before,
+.mode-selection .task-template-card[data-mode="human"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 200, 83, 0.05) 0%, rgba(0, 200, 83, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.mode-selection .task-template-card[data-mode="micro"]:hover,
+.mode-selection .task-template-card[data-mode="volume"]:hover,
+.mode-selection .task-template-card[data-mode="human"]:hover {
+  border-color: rgba(0, 200, 83, 0.5);
+}
+
+.mode-selection .task-template-card[data-mode="micro"]:hover::before,
+.mode-selection .task-template-card[data-mode="volume"]:hover::before,
+.mode-selection .task-template-card[data-mode="human"]:hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(0, 200, 83, 0.1) 0%, rgba(0, 200, 83, 0) 70%);
+}
+
+.mode-selection .task-template-card[data-mode="micro"] .template-icon,
+.mode-selection .task-template-card[data-mode="volume"] .template-icon,
+.mode-selection .task-template-card[data-mode="human"] .template-icon {
+  color: #00C853;
+}
+
+.mode-selection .task-template-card[data-mode="micro"]:hover .key-indicator,
+.mode-selection .task-template-card[data-mode="volume"]:hover .key-indicator,
+.mode-selection .task-template-card[data-mode="human"]:hover .key-indicator {
+  color: #00C853;
+  border-color: rgba(0, 200, 83, 0.5);
+  background-color: rgba(0, 200, 83, 0.1);
+}
+
+/* Mode cards for Sell task */
+.mode-selection .task-template-card[data-mode="all"]::before,
+.mode-selection .task-template-card[data-mode="single"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 82, 82, 0.05) 0%, rgba(255, 82, 82, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.mode-selection .task-template-card[data-mode="all"]:hover,
+.mode-selection .task-template-card[data-mode="single"]:hover {
+  border-color: rgba(255, 82, 82, 0.5);
+}
+
+.mode-selection .task-template-card[data-mode="all"]:hover::before,
+.mode-selection .task-template-card[data-mode="single"]:hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(255, 82, 82, 0.1) 0%, rgba(255, 82, 82, 0) 70%);
+}
+
+.mode-selection .task-template-card[data-mode="all"] .template-icon,
+.mode-selection .task-template-card[data-mode="single"] .template-icon {
+  color: #FF5252;
+}
+
+.mode-selection .task-template-card[data-mode="all"]:hover .key-indicator,
+.mode-selection .task-template-card[data-mode="single"]:hover .key-indicator {
+  color: #FF5252;
+  border-color: rgba(255, 82, 82, 0.5);
+  background-color: rgba(255, 82, 82, 0.1);
+}
+
+/* Mode-specific card styles */
+.mode-selection .task-template-card[data-mode^="micro"],
+.mode-selection .task-template-card[data-mode^="volume"],
+.mode-selection .task-template-card[data-mode^="human"] {
+  background: linear-gradient(45deg, rgba(0, 200, 83, 0.05) 0%, rgba(0, 200, 83, 0) 70%);
+  border-color: rgba(0, 200, 83, 0.2);
+}
+
+.mode-selection .task-template-card[data-mode^="micro"]:hover,
+.mode-selection .task-template-card[data-mode^="volume"]:hover,
+.mode-selection .task-template-card[data-mode^="human"]:hover {
+  background: linear-gradient(45deg, rgba(0, 200, 83, 0.1) 0%, rgba(0, 200, 83, 0.02) 70%);
+  border-color: rgba(0, 200, 83, 0.3);
+}
+
+.mode-selection .task-template-card[data-mode^="micro"] .key-indicator,
+.mode-selection .task-template-card[data-mode^="volume"] .key-indicator,
+.mode-selection .task-template-card[data-mode^="human"] .key-indicator {
+  color: rgba(0, 200, 83, 0.7);
+  border-color: rgba(0, 200, 83, 0.3);
+}
+
+.mode-selection .task-template-card[data-mode^="all"],
+.mode-selection .task-template-card[data-mode^="single"] {
+  background: linear-gradient(45deg, rgba(255, 82, 82, 0.05) 0%, rgba(255, 82, 82, 0) 70%);
+  border-color: rgba(255, 82, 82, 0.2);
+}
+
+.mode-selection .task-template-card[data-mode^="all"]:hover,
+.mode-selection .task-template-card[data-mode^="single"]:hover {
+  background: linear-gradient(45deg, rgba(255, 82, 82, 0.1) 0%, rgba(255, 82, 82, 0.02) 70%);
+  border-color: rgba(255, 82, 82, 0.3);
+}
+
+.mode-selection .task-template-card[data-mode^="all"] .key-indicator,
+.mode-selection .task-template-card[data-mode^="single"] .key-indicator {
+  color: rgba(255, 82, 82, 0.7);
+  border-color: rgba(255, 82, 82, 0.3);
+} 

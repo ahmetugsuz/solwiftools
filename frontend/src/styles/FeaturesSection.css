@@ -1,0 +1,281 @@
+.title-section {
+    min-height: auto;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.features-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 400;
+    font-weight: bolder;
+    font-style: bold;
+}
+
+.features-title .highlight {
+    font-size: 64px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-weight: bolder;
+}
+
+.features-title .secondary {
+    font-size: 64px;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+.icon-section {
+    min-height: auto;
+    padding-top: 0;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    background: #000000;
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 42px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.icon-card {
+    text-align: center;
+    padding: 32px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+    transition: all 0.15s ease;
+}
+
+/* Top and bottom lines */
+.icon-card::before,
+.icon-card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.01s ease;
+}
+
+.icon-card::before {
+    top: 0;
+}
+
+.icon-card::after {
+    bottom: 0;
+}
+
+/* Hover effects */
+.icon-card:hover {
+    background: linear-gradient(
+        to top,
+        rgba(75, 63, 232, 0.3) 0%,
+        rgba(75, 63, 232, 0.1) 50%,
+        rgba(75, 63, 232, 0) 100%
+    );
+}
+
+.icon-card:hover::before {
+    background: rgba(74, 63, 232, 0.1);
+    box-shadow: 0 0 15px rgba(75, 63, 232, 0.1);
+}
+
+.icon-card:hover::after {
+    background: rgba(75, 63, 232, 0.3);
+    box-shadow: 0 0 15px rgba(75, 63, 232, 0.5);
+}
+
+/* Existing icon card styles */
+.icon-card img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.icon-card h3 {
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.icon-card p {
+    color: rgba(255, 255, 255, 0.829);
+    font-family: 'avenir-light';
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.features-section-three {
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    background: #000000;
+    padding: 40px 0;
+    top: 1rem;
+    right: 2rem;
+}
+
+.feature-grid-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.features-section-two {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    background: #000000;
+    padding: 120px 0;
+}
+
+.feature-grid-two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.feature-card {
+    background-color: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(10px) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.042) !important;
+    border-radius: 26px !important;
+    padding: 32px;
+    width: 25rem;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-card h3 {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 12px;
+    height: 15%;
+}
+
+.feature-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+    max-width: 280px;
+    line-height: 1.5;
+    height: 15%;
+}
+
+.feature-card img {
+    width: 85%;
+    height: 60%;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid rgba(75, 63, 232, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+    margin-top: auto;
+    padding: 16px;
+}
+
+.discord-button {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    padding: 8px 16px;
+    color: #FFFFFF;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.discord-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Apply to all text in features section */
+.title-section,
+.icon-section,
+.features-section-three,
+.features-section-two {
+    font-family: 'Avenir Light', sans-serif;
+}
+
+.features-title .highlight,
+.features-title .secondary {
+    font-family: 'Avenir Light', sans-serif;
+    font-weight: 300;
+}
+
+.icon-card h3,
+.icon-card p,
+.feature-card h3,
+.feature-card p {
+    font-family: 'Avenir Light', sans-serif;
+    font-weight: 300;
+} 
+
+
+.features-radial-right {
+    position: absolute;
+    top: 60%;
+    right: -65rem;
+    height: 95rem;
+    width: 75rem;
+    background: radial-gradient(circle, rgb(0, 10, 198) 0%, rgba(151, 255, 5, 0.705) 70%, rgb(255, 0, 0) 100%);
+    filter: blur(300px);
+    border-radius: 80%;
+    z-index: 10;
+    transform: translateY(-50%);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.grid-overlay {
+    position: absolute;
+    top: -10rem;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background-image: 
+        linear-gradient(90deg, 
+            rgba(255, 255, 255, 0.10) 1px, 
+            transparent 1px
+        ),
+        linear-gradient(
+            rgba(255, 255, 255, 0.10) 1px, 
+            transparent 1px
+        );
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 10;
+    background-color: transparent;
+}
+
+

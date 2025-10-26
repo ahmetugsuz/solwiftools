@@ -1,0 +1,41 @@
+.crypto-chart {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  left: -4.5rem;
+}
+
+.chart-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 3s ease forwards;
+}
+
+.moving-point {
+  animation: moveAlongPath 3s ease-out infinite;
+  offset-path: path('M0,500 Q250,300 500,450 T1000,380');
+}
+
+
+@keyframes glow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes moveAlongPath {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+
+

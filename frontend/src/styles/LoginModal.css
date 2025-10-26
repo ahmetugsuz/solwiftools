@@ -1,0 +1,100 @@
+.login-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.782);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modalOverlayFadeIn 0.25s;
+}
+
+@keyframes modalOverlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.login-modal-card {
+  background: #121212;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 8px 40px 0 #000a;
+  padding: 48px 40px 40px 40px;
+  min-width: 350px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.95) translateY(30px);
+  animation: modalCardIn 0.33s cubic-bezier(.4,1.6,.6,1) forwards;
+}
+
+@keyframes modalCardIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.login-modal-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: none;
+  border: none;
+  color: #bababa;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+  transition: color 0.2s;
+}
+
+.login-modal-close:hover {
+  color: #ffffff;
+  border: none;
+  background: transparent;
+}
+
+.login-wallet-h1 {
+  color: #fff;
+  font-size: 24px;
+  margin: 0;
+  font-family: 'Avenir', sans-serif;
+}
+
+.login-purple-btn {
+  font-family: 'Avenir', sans-serif;
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.10);
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out, border 0.1s ease-in-out, transform 0.2s ease-in-out;
+}
+
+
+.login-purple-btn:hover {
+  background: #4c34ff;
+  color: white !important;
+  scale: 1.0;
+  transform: translate(0px) !important;
+  box-shadow: none !important;
+}
+
+
+.wallet-connected-info {
+  color: #fff;
+  font-size: 14px;
+  word-break: break-all;
+} 

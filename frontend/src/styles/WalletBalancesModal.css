@@ -1,0 +1,114 @@
+.wallet-balances-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.wallet-balances-container {
+  background-color: #000;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.close-button:hover {
+  color: white;
+}
+
+.terminal-output {
+  background-color: #000;
+  color: #bbb;
+  font-family: 'Courier New', monospace;
+  padding: 15px;
+  overflow-y: auto;
+  max-height: calc(80vh - 100px);
+  flex-grow: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: #333 #111;
+}
+
+.terminal-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 4px;
+}
+
+.wallet-balance-line {
+  display: flex;
+  margin-bottom: 10px;
+  min-height: 20px;
+}
+
+.wallet-index {
+  color: #888;
+  margin-right: 10px;
+  min-width: 120px;
+  white-space: nowrap;
+}
+
+.wallet-address {
+  color: #ddd;
+  flex-grow: 1;
+  margin-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wallet-balance {
+  color: #4ade80;
+  min-width: 80px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.close-button-bottom {
+  margin-top: 20px;
+  background-color: #333;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.close-button-bottom:hover {
+  background-color: #444;
+} 

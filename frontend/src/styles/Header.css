@@ -1,0 +1,322 @@
+/* Header.css */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 16px 32px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    z-index: 1000;
+    font-family: 'Avenir Light', sans-serif;
+    font-weight: bold;
+    background: transparent;
+    backdrop-filter: blur(0px);
+}
+
+.logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 9999px;
+    transition: background-color 0.3s ease;
+}
+
+.logo-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logo-image {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.logo-title {
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-left: 20px;
+}
+
+.nav {
+    display: flex;
+    gap: 24px;
+    background: rgba(0, 0, 0, 0.55) !important;
+    padding: 8px 16px;
+    border-radius: 50px;
+    flex: 1;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+    z-index: 1001;
+    margin: 0;
+}
+
+/* Remove previous active-link styles */
+.nav .nav-link.active-link::before,
+.nav .nav-link.active-link::after {
+    display: none;
+}
+
+/* Add glow effect to nav border */
+.nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    pointer-events: none;
+    z-index: 0;
+    border: 1.5px solid #131313;
+    background: transparent;
+
+}
+
+.nav::after {
+    display: none;
+}
+
+/* Individual section highlights */
+.nav-link {
+    position: relative;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 1;
+}
+
+.nav-link:hover,
+.nav-link.active-link {
+    color: #ffffff;
+}
+
+/* Create highlight effect for active and hover states */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(75, 63, 232, 0.1);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link.active-link::before {
+    opacity: 1;
+}
+
+/* Add vertical glow lines for active section */
+.nav-link.active-link::after {
+    content: '';
+    position: absolute;
+    top: -8px; /* Adjust based on nav padding */
+    left: 50%;
+    width: 2px;
+    height: calc(100% + 16px); /* Adjust based on nav padding */
+    background: #4B3FE8;
+    box-shadow: 
+        0 0 5px #4B3FE8,
+        0 0 10px #4B3FE8,
+        0 0 15px #4B3FE8;
+    transform: translateX(-50%);
+}
+
+.wallet-menu-container {
+    position: relative !important;
+    display: inline-block !important;
+    min-width: 180px;
+}
+
+
+.wallet-button.wallet-connected {
+    min-width: 180px;
+    justify-content: center;
+}
+
+.wallet-button {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    height: 40px;
+    padding: 0 16px;
+    white-space: nowrap;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    backdrop-filter: blur(20px);
+}
+
+.wallet-button.wallet-connected {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    height: 40px;
+    border-radius: 50px;
+    backdrop-filter: blur(20px);
+    border: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+.wallet-icon {
+    font-size: 16px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    transform: none;
+    min-width: 180px;
+    margin: 8px 0 0 0;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.dropdown-item {
+    display: block;
+    width: 150px;
+    max-width: 140px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 10px 8px;
+    text-align: center;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-item:not(:last-child) {
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.dropdown-item:hover {
+    background: #4B3FE8;
+    color: #fff;
+}
+
+.header-wallet-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.token-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.token-menu::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 32px; /* Bridge height, adjust as needed */
+    background: transparent;
+    pointer-events: auto;
+    z-index: 1001;
+}
+
+.token-dropdown {
+    display: none;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.95);
+    border-radius: 8px;
+    min-width: 162px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    z-index: 1002;
+    flex-direction: column;
+    border: 1.5px solid #131313;
+}
+
+.token-menu:hover .token-dropdown,
+.token-menu:focus-within .token-dropdown,
+.token-dropdown:hover,
+.token-dropdown:focus-within {
+    display: flex;
+}
+
+.dropdown-link {
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: background 0.2s;
+    border-radius: 8px;
+}
+
+.dropdown-link:hover {
+    background: #050132;
+    cursor: pointer;
+    color: white;
+}
+  
+.connect-wallet-btn {
+    width: 180px;
+    color: #fff;
+    border: none;
+    background-color: #060240;
+    border-radius: 50px;
+    padding: 0 22px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s;
+    box-shadow: 0 2px 8px rgba(75, 63, 232, 0.08);
+}
+.connect-wallet-btn:hover,
+.connect-wallet-btn:focus {
+    transform: translateY(-1px);
+    outline: none;
+    background-color: #040130;
+    color: #fff;
+}
+
+
+

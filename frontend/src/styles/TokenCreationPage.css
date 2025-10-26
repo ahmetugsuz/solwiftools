@@ -1,0 +1,820 @@
+/* TokenCreationPage.css */
+
+/* Importing fonts */
+@import "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap";
+
+/* Global styles */
+*,
+:before,
+:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #000000; /* Background color */
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Layout styles */
+.min-h-screen {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100%; /* Full width */
+    margin-top: 0.25rem;
+}
+
+.main-card {
+    background: #121111; /* Background for the main card */
+    backdrop-filter: blur(100px);
+    border-radius: 17px;
+    border: 1px solid rgba(255, 255, 255, 0.041);
+
+    max-width: 72rem;
+}
+
+.upload-image-card{
+  height: 20rem;
+  margin-top: -40px; /* Adjust this value to move the card up */
+}
+
+.upload-image-card,
+.social-links-card {
+    flex: 0 0 50%; /* Adjust this to control the width of the cards */
+    width: 100%; /* Set width to 100% for both cards */
+    background: rgba(255, 255, 255, 0.1); /* Background for the upload image card */
+    border-radius: 17px;
+    padding: 1.25rem; /* Adjust padding as needed */
+    margin-top: 20px; /* Changed from -20px to 20px to move it down */
+}
+
+/* Additional styles from the provided CSS */
+.bg_glass {
+    background: linear-gradient(#ffffff18, #ffffff18);
+}
+
+.filter_blur {
+    filter: blur(200px);
+}
+
+.bg_dark {
+    background-color: #ffffff14;
+}
+
+.text-gradient {
+    background: #ff0080;
+    background: linear-gradient(90deg, #ff0080, #ff5c5c 86%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+/* Other existing styles... */
+
+h1, h2, h3, h4, h5, h6 {
+  color: white; /* Primary header color changed to white */
+}
+
+input, textarea {
+  border: 1px solid rgba(47, 47, 47, 255); /* Light grey border for inputs */
+  border-radius: 8px;
+  background-color: rgba(10, 10, 10, 255); /* Dark grey background for inputs */
+  color: white;
+  padding: 0.75rem;
+}
+
+button {
+  background: linear-gradient(90deg, #ff5c5c, #ff0080); /* Gradient background for button */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ff7b7b, #ff33a6);
+}
+
+.connect-wallet-container{
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+.connect-wallet{
+  padding: 22px 24px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  color: #cecece;
+}
+
+.instructions-container{
+  padding-top: 60px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.gap-4 {
+  gap: 1rem; /* Space between flex items */
+}
+
+.rounded-2xl {
+  border-radius: 12px; /* Rounded corners for cards */
+}
+
+.p-5 {
+  padding: 1.25rem; /* Padding for cards */
+}
+
+.space-y-3 > * + * {
+  margin-top: 1rem; /* Space between vertical elements */
+}
+
+.text-sm {
+  font-size: 0.875rem; /* Small text size */
+}
+
+.text-lg {
+  font-size: 1.125rem; /* Large text size */
+}
+
+.text-center {
+  text-align: center; /* Center text */
+}
+
+.mt-2 {
+  margin-top: 0.5rem; /* Margin top */
+}
+
+.mt-5 {
+  margin-top: 1.25rem; /* Margin top */
+}
+
+.w-full {
+  width: 100%; /* Full width */
+}
+
+.lg\:w-1\/2 {
+  width: 50%; /* Half width on large screens */
+}
+
+.lg\:flex-row {
+  flex-direction: row; /* Row direction on large screens */
+}
+
+.lg\:mx-auto {
+  margin-left: auto; /* Centering on large screens */
+  margin-right: auto; /* Centering on large screens */
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #ff5c5c, #ff0080);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.topbar h1 {
+  font-size: 1.5rem;
+}
+
+.topbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.topbar a:hover {
+  color: #ffe;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 255); /* Full black background */
+  color: white;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 3rem 0;
+  background-color: rgba(0, 0, 0, 255);  /* Same color as the body background */
+  margin-top: 80px;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.hero-section p {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: #d1d1d1;
+}
+
+.main-content {
+  display: flex;
+  gap: 3rem; /* Space between columns */
+  margin-top: 5rem; /* Adjust to match the topbar height */
+  padding: 2rem;
+}
+
+.left-section {
+  flex: 1;
+  background: transparent;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: -40px; /* This will move it up to align with the upload image card */
+}
+
+.right-section {
+  flex: 2; /* This will take up more space compared to the left section */
+  background: rgba(10, 10, 10, 255); /* Dark grey background for options section */
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1); /* Background for the upload image card */
+
+}
+
+.content h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #6c34a6;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(47, 47, 47, 255); /* Light grey border for inputs */
+  border-radius: 8px;
+  background-color: rgba(10, 10, 10, 255); /* Dark grey background for inputs */
+  color: white;
+  font-size: 1rem;
+}
+
+.form-input[type="file"] {
+  padding: 0;
+}
+
+.textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(47, 47, 47, 255); /* Light grey border for textarea */
+  border-radius: 8px;
+  background-color: rgba(10, 10, 10, 255); /* Dark grey background for textarea */
+  color: white;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+button {
+  background: linear-gradient(90deg, #ff5c5c, #ff0080); /* Gradient background for button */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ff7b7b, #ff33a6);
+}
+
+.optional,
+.advanced-options {
+  margin-top: 2rem;
+}
+
+.optional h3,
+.advanced-options h3 {
+  margin-bottom: 1rem;
+  color: #6c34a6;
+}
+
+.advanced-options .checkbox-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.advanced-options label {
+  display: flex;
+  align-items: center;
+}
+
+.advanced-options input {
+  margin-right: 0.5rem;
+}
+
+.footer {
+  background-color: rgba(10, 10, 10, 255); /* Same dark color as content */
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+  border-top: 1px solid rgba(47, 47, 47, 255); /* Light grey border for footer */
+}
+
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Apply colors to the "create solana token" text */
+.create-solana-token {
+  color: #ff5c5c; /* Primary color */
+  background-color: #ff0080; /* Background color */
+}
+
+/* Style for the cards */
+.card {
+  background-color: #0a0a0a; /* Card color */
+  border: 1px solid rgb(0, 0, 0); /* Outline color */
+  padding: 16px; /* Adjust as needed */
+  margin: 10px; /* Adjust as needed */
+  border-radius: 4px; /* Optional: for rounded corners */
+}
+
+/* Add this to your TokenCreationPage.css */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: rgb(0, 0, 0);
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #ff5c5c;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+.checkbox-wrapper-58 input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+
+.checkbox-wrapper-58 *,
+.checkbox-wrapper-58 ::after,
+.checkbox-wrapper-58 ::before {
+  box-sizing: border-box;
+}
+
+/* The switch - the box around the slider */
+.checkbox-wrapper-58 .switch {
+  --switch_width: 2em;
+  --switch_height: 1em;
+  --thumb_color: #e8e8e8;
+  --track_color: #e8e8e8;
+  --track_active_color: #29e15d;
+  --outline_color: #000000;
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: var(--switch_width);
+  height: var(--switch_height);
+}
+
+/* The slider */
+.checkbox-wrapper-58 .slider {
+  box-sizing: border-box;
+  border: 2px solid var(--outline_color);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--track_color);
+  transition: .15s;
+  border-radius: var(--switch_height);
+}
+
+.checkbox-wrapper-58 .slider:before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  height: var(--switch_height);
+  width: var(--switch_height);
+  border: 2px solid var(--outline_color);
+  border-radius: 100%;
+  left: -2px;
+  bottom: -2px;
+  background-color: var(--thumb_color);
+  transform: translateY(-0.2em);
+  box-shadow: 0 0.2em 0 var(--outline_color);
+  transition: .15s;
+}
+
+.checkbox-wrapper-58 input:checked + .slider {
+  background-color: var(--track_active_color);
+}
+
+.checkbox-wrapper-58 input:focus-visible + .slider {
+  box-shadow: 0 0 0 2px var(--track_active_color);
+}
+
+/* Raise thumb when hovered */
+.checkbox-wrapper-58 input:hover + .slider:before {
+  transform: translateY(-0.3em);
+  box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+.checkbox-wrapper-58 input:checked + .slider:before {
+  transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.2em);
+}
+
+/* Raise thumb when hovered & checked */
+.checkbox-wrapper-58 input:hover:checked + .slider:before {
+  transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
+  box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+.checkbox-wrapper-30 {
+    position: relative; /* Ensure relative positioning for the glow */
+}
+
+
+
+.checkbox-wrapper-30.active::before {
+    opacity: 1; /* Show glow when active */
+}
+
+.checkbox-wrapper-30 .checkbox {
+  --bg: transparent;
+  --brdr: #ccc;
+  --brdr-actv: #29e15d;
+  --brdr-hovr: #1c3eff;
+  --dur: calc((var(--size, 2)/2) * 0.6s);
+  display: inline-block;
+  width: calc(var(--size, 1) * 22px);
+  position: relative;
+}
+.checkbox-wrapper-30 .checkbox:after {
+  content: "";
+  width: 100%;
+  padding-top: 100%;
+  display: block;
+
+}
+.checkbox-wrapper-30 .checkbox > * {
+  position: absolute;
+}
+.checkbox-wrapper-30 .checkbox input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg);
+    border-radius: calc(var(--size, 1) * 4px);
+    border: calc(var(--newBrdr, var(--size, 1)) * 1px) solid;
+    color: var(--newBrdrClr, var(--brdr));
+    outline: none;
+    margin: 0;
+    padding: 0;
+    transition: all calc(var(--dur) / 3) linear;
+}
+.checkbox-wrapper-30 .checkbox input:hover,
+.checkbox-wrapper-30 .checkbox input:checked {
+  --newBrdr: calc(var(--size, 1) * 2);
+}
+
+.checkbox-wrapper-30 .checkbox input:checked + svg {
+  color: #29e15d; /* Change stroke color to #ff5c5c when checked */
+}
+.checkbox-wrapper-30 .checkbox input:checked {
+  --newBrdrClr: var(--brdr-actv);
+  stroke: #1cff24;
+  transition-delay: calc(var(--dur) /1.3);
+}
+.checkbox-wrapper-30 .checkbox input:checked + svg {
+  --dashArray: 16 93;
+  --dashOffset: 109;
+}
+.checkbox-wrapper-30 .checkbox svg {
+  fill: none;
+  left: 0;
+  pointer-events: none;
+  stroke: var(--stroke, var(--border-active));
+  stroke-dasharray: var(--dashArray, 93);
+  stroke-dashoffset: var(--dashOffset, 94);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  top: 0;
+  transition: stroke-dasharray var(--dur), stroke-dashoffset var(--dur), stroke 0.3s ease;
+}
+.checkbox-wrapper-30 .checkbox input:checked + svg {
+  stroke: #1cff24;
+}
+.checkbox-wrapper-30 .checkbox svg,
+.checkbox-wrapper-30 .checkbox input {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.advanced-options {
+  display: flex; /* Ensure the advanced options are displayed in a flex container */
+  flex-wrap: wrap; /* Allow wrapping if the screen is too small */
+  gap: 1rem; /* Space between the options */
+  border-radius: 17px;
+}
+
+/* Radial Background Effect */
+/* Enhanced Spotlight Background Effect */
+.radial-background1 {
+  position: absolute; /* Positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  height: 80rem; /* Full height of the viewport */
+  width: 80rem; /* Full width of the viewport */
+  background: radial-gradient(circle, rgb(204, 0, 255) 0%, rgb(195, 0, 255) 70%, rgb(255, 0, 0) 100%); /* Radial gradient */
+  filter: blur(300px); /* Increased blur effect for smoothness */
+  border-radius: 70%; /* Make it circular */
+  z-index: -10; /* Place it behind other elements */
+  transform: translate(50%, -50%); /* Center the element */
+}
+
+.radial-background2 {
+  position: absolute; /* Positioning */
+  top: -900%; /* Center vertically */
+  left: -60%; /* Center horizontally */
+  height: 80rem; /* Full height of the viewport */
+  width: 80rem; /* Full width of the viewport */
+  background: radial-gradient(circle, rgb(255, 98, 63) 0%, rgb(255, 81, 0) 70%, rgb(255, 0, 0) 100%); /* Radial gradient */
+  filter: blur(300px); /* Increased blur effect for smoothness */
+  border-radius: 70%; /* Make it circular */
+  z-index: -10; /* Place it behind other elements */
+  transform: translate(-50%, 50%); /* Center the element */
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem; /* Space between vertical elements */
+}
+
+/* New class for SVG logo size */
+.svg-large {
+    width: 120px; /* Adjust this value for desired width */
+    height: 120px; /* Adjust this value for desired height */
+    margin-top: 1rem; /* Optional: Adjust margin to position it lower */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.animated-box {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.animated-box.animate {
+  transform: scale(1.1);
+}
+
+.token-creation-container {
+    font-family: 'Avenir Light';
+}
+
+.token-creation-title,
+.token-creation-subtitle {
+    font-family: 'Avenir Light';
+}
+
+.form-container {
+    font-family: 'Avenir Light', sans-serif;
+}
+
+.form-group label,
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-family: 'Avenir Light', sans-serif;
+}
+
+.token-creation-button {
+    font-family: 'Avenir Light', sans-serif;
+}
+
+.error-message,
+.success-message {
+    font-family: 'Avenir Light', sans-serif;
+}
+
+.steps-container,
+.step-title,
+.step-description {
+    font-family: 'Avenir Light', sans-serif;
+}
+
+/* Border animation button styles */
+.border-animation-button {
+  overflow: hidden;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.border-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px; /* Full rounded */
+  pointer-events: none;
+}
+
+.border-animation::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  
+  /* Create a gradient that will be used for the border */
+  background: linear-gradient(90deg, transparent, transparent) border-box, 
+              linear-gradient(90deg, #4ade80, #4ade80) border-box;
+  
+  /* Make sure only the border is visible */
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  
+  /* Initial state - no visible border */
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  
+  /* Animation properties */
+  transition: background-size 1s, box-shadow 0.3s;
+}
+
+/* On hover, animate the border */
+.border-animation-button:hover .border-animation::before {
+  background-size: 100% 100%;
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
+  transition: background-size 1s, box-shadow 0.3s 1s;
+}
+
+/* Add a glow effect after animation completes */
+.border-animation-button:hover {
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+  transition: box-shadow 0.3s 1s;
+}
+
+/* Animated checkmark for custom checkbox */
+.checkbox-wrapper-30 .checkbox input + svg use {
+  stroke-dasharray: 16 93;
+  stroke-dashoffset: 109;
+  transition: stroke-dasharray 0.3s, stroke-dashoffset 0.3s;
+}
+.checkbox-wrapper-30 .checkbox input:checked + svg use {
+  stroke: #1cff24;
+  stroke-dasharray: 16 93;
+  stroke-dashoffset: 0;
+}
+
+/* DEBUG: Force checkmark to show for all checkboxes */
+.checkbox-wrapper-30 .checkbox svg use {
+  stroke: #1cff24 !important;
+  stroke-width: 2.5 !important;
+  stroke-dasharray: 16 93 !important;
+  stroke-dashoffset: 0 !important;
+  display: block !important;
+}
+
+
+

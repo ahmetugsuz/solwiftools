@@ -1,0 +1,217 @@
+/* Task Card */
+.task-card {
+  position: relative;
+  background-color: #181818;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid #222;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.task-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(80, 70, 229, 0.05) 0%, rgba(80, 70, 229, 0) 70%);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(80, 70, 229, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.task-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(80, 70, 229, 0.1) 0%, rgba(80, 70, 229, 0) 70%);
+}
+
+/* Different color variants */
+.task-card.buy::before {
+  background: linear-gradient(45deg, rgba(0, 200, 83, 0.05) 0%, rgba(0, 200, 83, 0) 70%);
+}
+
+.task-card.buy:hover::before {
+  background: linear-gradient(45deg, rgba(0, 200, 83, 0.1) 0%, rgba(0, 200, 83, 0) 70%);
+}
+
+.task-card.volume::before {
+  background: linear-gradient(45deg, rgba(3, 169, 244, 0.05) 0%, rgba(3, 169, 244, 0) 70%);
+}
+
+.task-card.volume:hover::before {
+  background: linear-gradient(45deg, rgba(3, 169, 244, 0.1) 0%, rgba(3, 169, 244, 0) 70%);
+}
+
+.task-card.bump::before {
+  background: linear-gradient(45deg, rgba(255, 87, 34, 0.05) 0%, rgba(255, 87, 34, 0) 70%);
+}
+
+.task-card.bump:hover::before {
+  background: linear-gradient(45deg, rgba(255, 87, 34, 0.1) 0%, rgba(255, 87, 34, 0) 70%);
+}
+
+/* Status variants */
+.task-card.running {
+  border-color: rgba(0, 200, 83, 0.3);
+}
+
+.task-card.paused {
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+.task-card.waiting {
+  border-color: rgba(3, 169, 244, 0.3);
+}
+
+.task-card.completed {
+  border-color: rgba(158, 158, 158, 0.3);
+  opacity: 0.7;
+}
+
+/* Card header */
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+}
+
+.task-icon {
+  font-size: 18px;
+  color: #5046e5;
+}
+
+.task-icon.volume {
+  color: #03A9F4;
+}
+
+.task-icon.buy {
+  color: #00C853;
+}
+
+.task-icon.bump {
+  color: #FF5722;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.task-action-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  cursor: pointer;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.task-action-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.task-action-button.start:hover {
+  color: #00C853;
+}
+
+.task-action-button.pause:hover {
+  color: #FFC107;
+}
+
+.task-action-button.delete:hover {
+  color: #F44336;
+}
+
+.task-action-button.duplicate:hover {
+  color: #2196F3;
+}
+
+.task-action-button.complete:hover {
+  color: #9C27B0;
+}
+
+.task-card-content {
+  padding: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.task-card-content h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.task-details {
+  margin-bottom: 16px;
+}
+
+.task-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.detail-label {
+  color: #888;
+}
+
+.detail-value {
+  color: white;
+  font-weight: 500;
+}
+
+.task-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #888;
+}
+
+.status-indicator.running {
+  background-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+}
+
+.status-indicator.paused {
+  background-color: #FFC107;
+}
+
+.status-indicator.waiting {
+  background-color: #2196F3;
+}
+
+.status-indicator.completed {
+  background-color: #9E9E9E;
+}
+
+.status-text {
+  color: #ccc;
+} 
