@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
+import rollupNodePolyFill from 'rollup-plugin-node-polyfills';
+
+
 
 // Custom plugin to handle problematic modules
 function handleProblematicModules() {
@@ -57,6 +60,7 @@ export default defineConfig({
       transformMixedEsModules: true,
     },
     rollupOptions: {
+      plugins: [rollupNodePolyFill()],
       output: {
         manualChunks: {
           vendor: [
