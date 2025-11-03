@@ -105,7 +105,8 @@ export default defineConfig({
       '@solana/wallet-adapter-base',
       '@solana/wallet-adapter-react',
       '@solana/wallet-adapter-react-ui',
-      '@solana/web3.js'
+      '@solana/web3.js',
+      'motion-utils'
     ],
     esbuildOptions: {
       define: {
